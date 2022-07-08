@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://ArrowTest01/ArrowPrompted.tscn" type="PackedScene" id=1]
+
+[node name="ArrowPromptControl" type="Control"]
+anchor_right = 0.078
+anchor_bottom = 0.133
+margin_right = 0.127998
+margin_bottom = 0.199997
+rect_min_size = Vector2( 80, 80 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ArrowPrompted" parent="." instance=ExtResource( 1 )]
+position = Vector2( 40, 40 )

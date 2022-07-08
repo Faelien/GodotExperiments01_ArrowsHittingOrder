@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Sprites/Arrows_F_right.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Arrows_S_down.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Arrows_N_up.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Arrows_Box.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Arrows_W_left.png" type="Texture" id=5]
+[ext_resource path="res://ArrowTest02/scr_ArrowPrompted2.gd" type="Script" id=6]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [  ],
+"loop": false,
+"name": "empty",
+"speed": 0.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": false,
+"name": "ArrUpN",
+"speed": 0.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": false,
+"name": "ArrLeftW",
+"speed": 0.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": false,
+"name": "ArrRightF",
+"speed": 0.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": false,
+"name": "ArrDownS",
+"speed": 0.0
+} ]
+
+[node name="ArrowPrompted" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -944.0
+margin_bottom = -520.0
+rect_min_size = Vector2( 80, 80 )
+rect_pivot_offset = Vector2( 40, 40 )
+script = ExtResource( 6 )
+
+[node name="N2Dmod" type="Node2D" parent="."]
+position = Vector2( 40, 40 )
+
+[node name="SpriteBorder" type="Sprite" parent="N2Dmod"]
+texture = ExtResource( 4 )
+
+[node name="AnimSprArrow" type="AnimatedSprite" parent="N2Dmod"]
+frames = SubResource( 1 )
+animation = "empty"

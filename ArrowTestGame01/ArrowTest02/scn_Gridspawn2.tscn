@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://ArrowTest02/ArrowPrompted2.tscn" type="PackedScene" id=1]
+[ext_resource path="res://ArrowTest02/scr_Gridspawn2.gd" type="Script" id=2]
+
+[node name="GridSpawn2" type="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -300.0
+margin_right = 512.0
+margin_bottom = 300.0
+script = ExtResource( 2 )
+numOfArrows = 10
+nodePrompt_path = "res://ArrowTest02/ArrowPrompted2.tscn"
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -40.0
+margin_bottom = 40.0
+grow_horizontal = 2
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer"]
+margin_left = 472.0
+margin_right = 552.0
+margin_bottom = 80.0
+rect_pivot_offset = Vector2( 40, 40 )
+columns = 5
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ArrowPrompted" parent="CenterContainer/GridContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 80.0
+margin_bottom = 80.0
+
+[connection signal="sig_arrowValue" from="." to="CenterContainer/GridContainer/ArrowPrompted" method="_on_GridSpawn2_sig_arrowValue"]

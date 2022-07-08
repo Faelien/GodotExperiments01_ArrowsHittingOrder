@@ -1,0 +1,82 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://ArrowTest01/scn_InputArrow.tscn" type="PackedScene" id=1]
+[ext_resource path="res://ArrowTest01/scn_reactButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://ArrowTest01/ArrowPrompted.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ArrowTest01/scn_Gridspawn.tscn" type="PackedScene" id=4]
+[ext_resource path="res://ArrowTest02/scn_Gridspawn2.tscn" type="PackedScene" id=5]
+
+[node name="TestNode2D" type="Node2D"]
+
+[node name="InputArrow" parent="." instance=ExtResource( 1 )]
+position = Vector2( 949, 60 )
+
+[node name="reactButton" parent="." instance=ExtResource( 2 )]
+position = Vector2( 847, 59 )
+
+[node name="ContButton" type="Control" parent="."]
+margin_left = 354.0
+margin_top = 488.0
+margin_right = 654.0
+margin_bottom = 528.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ContButton"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Button" type="Button" parent="ContButton"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "Click here to Randomize"
+
+[node name="ArrowPrompted" parent="ContButton" instance=ExtResource( 3 )]
+position = Vector2( 397, -430 )
+
+[node name="ContButton2" type="Control" parent="."]
+margin_left = 354.0
+margin_top = 424.0
+margin_right = 654.0
+margin_bottom = 464.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ContButton2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Button" type="Button" parent="ContButton2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "Click here to spawn new order"
+
+[node name="Example" type="Node" parent="."]
+
+[node name="ArrowPrompted" parent="Example" instance=ExtResource( 3 )]
+position = Vector2( 69, 80 )
+
+[node name="ArrowPrompted2" parent="Example" instance=ExtResource( 3 )]
+position = Vector2( 165, 80 )
+
+[node name="ArrowPrompted3" parent="Example" instance=ExtResource( 3 )]
+position = Vector2( 264, 80 )
+
+[node name="ArrowPrompted4" parent="Example" instance=ExtResource( 3 )]
+position = Vector2( 363, 83 )
+
+[node name="GridSpawn" parent="." instance=ExtResource( 4 )]
+margin_left = 26.0
+margin_top = 134.0
+margin_right = 26.0
+margin_bottom = 134.0
+
+[node name="GridSpawn2" parent="." instance=ExtResource( 5 )]
+margin_left = 514.0
+margin_top = 273.0
+margin_right = 514.0
+margin_bottom = 273.0
+
+[connection signal="pressed" from="ContButton/Button" to="ContButton/ArrowPrompted" method="_on_Button_pressed"]
+[connection signal="pressed" from="ContButton/Button" to="Example/ArrowPrompted" method="_on_Button_pressed"]
+[connection signal="pressed" from="ContButton/Button" to="Example/ArrowPrompted2" method="_on_Button_pressed"]
+[connection signal="pressed" from="ContButton/Button" to="Example/ArrowPrompted3" method="_on_Button_pressed"]
+[connection signal="pressed" from="ContButton/Button" to="Example/ArrowPrompted4" method="_on_Button_pressed"]
+[connection signal="pressed" from="ContButton/Button" to="GridSpawn" method="_on_Button_pressed"]
+[connection signal="pressed" from="ContButton2/Button" to="GridSpawn2" method="_on_Button_pressed"]
